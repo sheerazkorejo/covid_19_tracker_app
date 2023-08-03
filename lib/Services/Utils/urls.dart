@@ -3,5 +3,6 @@ class Urls {
 
   static const String worldStates = '${baseUrl}all';
 
-  static const String countryStates = '${baseUrl}countires';
+  static const String countryStates =
+      ' https://disease.sh/v3/covid-19/countries';
 }

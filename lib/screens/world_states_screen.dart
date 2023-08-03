@@ -4,6 +4,8 @@ import 'package:pie_chart/pie_chart.dart';
 import '../Services/states_services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import 'countires_states_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -50,7 +52,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                               double.parse(snapshot.data!.deaths.toString())
                         },
                         chartRadius: MediaQuery.of(context).size.width / 3.2,
-                        animationDuration: const Duration(milliseconds: 800),
+                        animationDuration: const Duration(milliseconds: 1400),
                         chartType: ChartType.ring,
                         legendOptions: const LegendOptions(
                           legendPosition: LegendPosition.left,
@@ -101,13 +103,22 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CountiresStatesList(),
+                              ));
+                        },
+                        child: Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(child: Text("Track Countires")),
                         ),
-                        child: const Center(child: Text("Track Countires")),
                       ),
                     ],
                   );
